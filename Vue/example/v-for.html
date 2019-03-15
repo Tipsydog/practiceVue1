@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for 实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-for 实例</h1>
+    <div id="app">
+        <ul>
+            <li v-for="item in sortItems">
+                {{item}}
+            </li>
+        </ul>
+    </div> 
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                items:[20,23,18,5,32,19,54,56,41]
+            },
+
+            computed: {
+                sortItems:function(){
+                    return this.items.sort(sortNumber);     //如果只有sort()那么只会按照首位数字排序，5会排到倒数第三位
+
+                    function sortNumber(a,b){               //升序排列
+                         return a-b;
+            }
+                }
+
+            
+            },
+        })
+    </script>
+</body>
+</html>

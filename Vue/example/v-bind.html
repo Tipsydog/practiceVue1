@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind 实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-bind 实例</h1>
+    <hr>
+    <div id="app">
+        <!-- <img src="https://jspang.com/static//myimg/blogtouxiang.jpg" width="200px"> -->
+        <p>
+        <img v-bind:src="imgSrc" width="200px"></p>
+        <p>
+        <a :href="webUrl" target="_blank">大醉狗</a>
+        </p>
+        <hr>
+        <div :class="className">1、绑定class</div>
+        <div :class="{classA:isOK}">2、绑定class中的判定</div>
+        <div :class="[classA,classB]">3、绑定数组</div>
+        <div :class="isOK?classA:classB">4、绑定三元运算符</div>
+        <hr>
+        <div>
+            <input type="checkbox" id="isOK" v-model="isOK">
+            <label for="isOK">isOK={{isOK}}</label>
+        </div>
+        <hr>
+        <div :style="{color:red,fontSize:font}">5、绑定style</div>
+        <div :style="styleObject">6、绑定style对象</div>
+
+    </div>
+
+    <style>
+        .classA{
+            color: red;
+        }
+        .classB{
+            font-size: 150%;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'https://jspang.com/static//myimg/blogtouxiang.jpg',
+                webUrl:'http://jspang.com',
+                className:'classA',
+                isOK:false,
+                classA:'classA',
+                classB:'classB',
+                red:'red',
+                font:'70px',
+                styleObject:{
+                    color:'green',
+                    fontSize:'50px'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
